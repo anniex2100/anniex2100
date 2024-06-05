@@ -13,17 +13,17 @@ def step_func(x):
 
 xi = np.array([[1,1,1,1],[0,1,0,1],[0,0,1,1]])
 yi = np.array([[-1],[1],[1],[1]])
-zi = np.array([[8],[4],[7]])
+wi = np.array([[8],[4],[7]])
 
 alpha = 0.01
-J = costf(zi,xi,yi)
+J = costf(wi,xi,yi)
 
 while(True):
     JP = J
-    delw = alpha*gradJ(zi)
-    zi = zi - delw
-    J = costf(zi,xi,yi)
-    print(J,zi.T,step_func(zi.T@xi))
+    delw = alpha*gradJ(wi)
+    wi = wi - delw
+    J = costf(wi,xi,yi)
+    print(J,wi.T,step_func(wi.T@xi))
     if(np.abs((J-JP)/J) < 0.000001):break
 
-print(zi)
+print(wi)
